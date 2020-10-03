@@ -9,10 +9,12 @@ import webservicesspringbootrenan.demo.repositories.UserRepository;
 
 import static java.util.Arrays.asList;
 
-@Configuration
-@Profile("test")
-public class TestConfig implements CommandLineRunner {
-    @Autowired
+@Configuration // serve para falar ao spring que é uma classe de configuraçao
+@Profile("test")//para dizer que essa classe é expecifica do perfil de teste
+
+public class TestConfig implements CommandLineRunner {//o command é para minha aplicaçao rodar no perfil de teste
+
+    @Autowired//uso em injeçao de dependencia para o spring saber que a classe tem uma dependencia do UserRepository
     private UserRepository userRepository;
 
     @Override
