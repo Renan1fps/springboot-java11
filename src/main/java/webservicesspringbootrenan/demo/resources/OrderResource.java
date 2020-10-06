@@ -6,28 +6,28 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import webservicesspringbootrenan.demo.entities.User;
-import webservicesspringbootrenan.demo.services.Userservice;
+import webservicesspringbootrenan.demo.entities.Order;
+import webservicesspringbootrenan.demo.services.OrderService;
 
 import java.util.List;
 
-@RestController//para dizer que esse é um controller e irá me retornar
-@RequestMapping(value = "/users")//para acessar meu endpoint esse é o caminho quando fizer uma requisiçao de usuarios
-public class UserResource {
+@RestController
+@RequestMapping(value = "/order")
+public class OrderResource {
     @Autowired
-    private Userservice service;
+    private OrderService service;
 
 
     @GetMapping
     // essa anotation corresponde  a um get do http-> signica que ela ira retornar esse metodo quando acessar o /users
-    public ResponseEntity<List<User>> findAll() {
-        List<User> list = service.findAll();
+    public ResponseEntity<List<Order>> findAll() {
+        List<Order> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<User> findByid(@PathVariable Long id) {
-        User obj = service.findById(id);
+    public ResponseEntity<Order> findByid(@PathVariable Long id) {
+        Order obj = service.findById(id);
         return ResponseEntity.ok().body(obj);
     }
 
