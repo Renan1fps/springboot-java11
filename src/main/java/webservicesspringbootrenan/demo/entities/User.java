@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -23,7 +22,7 @@ public class User implements Serializable {
 
     @JsonIgnore
     @OneToMany(mappedBy = "client")
-    private  List<Order> orders= new ArrayList<>();
+    private final List<Order> orders= new ArrayList<>();
 
     public User() {
     }

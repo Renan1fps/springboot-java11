@@ -2,6 +2,7 @@ package webservicesspringbootrenan.demo.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 import webservicesspringbootrenan.demo.entities.Category;
 
 import webservicesspringbootrenan.demo.repositories.CategoryRepository;
@@ -11,6 +12,7 @@ import java.util.Optional;
 
 @Service
 public class CategoryService {
+
     @Autowired
     private CategoryRepository categoryRepository;
 
