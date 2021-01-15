@@ -44,7 +44,7 @@ public class TestConfig implements CommandLineRunner {//o command é para minha 
         Product p3 = new Product(null, "Macbook Pro", "Nam eleifend maximus tortor, at mollis.", 1250.0, "");
         Product p4 = new Product(null, "PC Gamer", "Donec aliquet odio ac rhoncus cursus.", 1200.0, "");
         Product p5 = new Product(null, "Rails for Dummies", "Cras fringilla convallis sem vel faucibus.", 100.99, "");
-        productRepository.saveAll(asList(p1,p2,p3,p4,p5));
+        productRepository.saveAll(asList(p1, p2, p3, p4, p5));
 
         Category cat1 = new Category(null, "Electronics");
         Category cat2 = new Category(null, "Books");
@@ -60,5 +60,13 @@ public class TestConfig implements CommandLineRunner {//o command é para minha 
         Order o2 = new Order(null, Instant.parse("2019-07-21T03:42:10Z"), OrderStatus.SHIPPED, user2);
         Order o3 = new Order(null, Instant.parse("2019-07-22T15:21:22Z"), OrderStatus.SHIPPED, user1);
         orderRepository.saveAll(asList(o1, o2, o3));
+
+        p1.getCategories().add(cat2);
+        p2.getCategories().add(cat1);
+        p2.getCategories().add(cat3);
+        p3.getCategories().add(cat3);
+        p4.getCategories().add(cat3);
+        p5.getCategories().add(cat2);
+        productRepository.saveAll(asList(p1, p2, p3, p4, p5));
     }
 }
